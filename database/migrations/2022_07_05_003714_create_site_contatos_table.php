@@ -16,7 +16,12 @@ class CreateSiteContatosTable extends Migration
         Schema::create('site_contatos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-        });
+            $table->string('nome', 50);
+            $table->string('telefone', 50);
+            $table->string('email', 50);
+            $table->integer('motivo_contato');
+            $table->text('mensagem');
+        }); 
     }
 
     /**
