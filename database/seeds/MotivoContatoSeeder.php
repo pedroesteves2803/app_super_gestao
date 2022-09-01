@@ -3,7 +3,6 @@
 use App\MotivoContato;
 use Illuminate\Database\Seeder;
 
-
 class MotivoContatoSeeder extends Seeder
 {
     /**

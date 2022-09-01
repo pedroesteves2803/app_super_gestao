@@ -10,8 +10,8 @@ class LogAcessoMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -23,10 +23,9 @@ class LogAcessoMiddleware
 
         LogAcesso::create(['log' => "IP $ip requisitou a rota $rota"]);
         // return Response('Chegamos');
-        
+
         return $next($request);
 
         // $next($request);
-
     }
 }

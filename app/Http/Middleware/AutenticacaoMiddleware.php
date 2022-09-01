@@ -9,19 +9,18 @@ class AutenticacaoMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     *
      * @return mixed
      */
     public function handle($request, Closure $next, $metodo_autenticacao, $perfil)
     {
-       session_start();
+        session_start();
 
-       if (isset($_SESSION['email']) && $_SESSION['email'] != '') {
-         return $next($request);
-       } else{
-        redirect()->route('site.login', ['erro' => 2]);
-       }
-
+        if (isset($_SESSION['email']) && '' != $_SESSION['email']) {
+            return $next($request);
+        } else {
+            return redirect()->route('site.login', ['erro' => 2]);
+        }
     }
 }

@@ -13,7 +13,7 @@ class AlterFornecedoresNovaColunaSiteComAfter extends Migration
      */
     public function up()
     {
-        Schema::table('fornecedores', function (Blueprint $table){
+        Schema::table('fornecedores', function (Blueprint $table) {
             $table->string('site', 150)->after('nome')->nullable();
         });
     }
@@ -25,7 +25,7 @@ class AlterFornecedoresNovaColunaSiteComAfter extends Migration
      */
     public function down()
     {
-        Schema::table('fornecedores', function (Blueprint $table){
+        Schema::table('fornecedores', function (Blueprint $table) {
             $table->dropColumn('site');
         });
     }
