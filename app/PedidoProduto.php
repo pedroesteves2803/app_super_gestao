@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class PedidoProduto extends Model
 {
     //
-    protected $fillable ='pedidos_produtos';
+    protected $table ='pedidos_produtos';
 }

@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PedidoProdutoController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
 use Illuminate\Support\Facades\Route;
@@ -36,8 +36,6 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
 
     Route::get('/sair', [LoginController::class, 'sair'])->name('app.sair');
 
-    Route::get('/clientes', [ClienteController::class, 'index'])->name('app.cliente');
-
     Route::get('/fornecedor', [FornecedorController::class, 'index'])->name('app.fornecedor');
     Route::post('/fornecedor/listar', [FornecedorController::class, 'listar'])->name('app.fornecedor.listar');
     Route::get('/fornecedor/listar', [FornecedorController::class, 'listar'])->name('app.fornecedor.listar');
@@ -49,6 +47,13 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     Route::resource('produto', 'ProdutoController');
 
     Route::resource('produto-detalhe', 'ProdutoDetalheController');
+
+    Route::resource('cliente', 'ClienteController');
+    Route::resource('pedido', 'PedidoController');
+    // Route::resource('pedido-produto', 'PedidoProdutoController');]
+
+    Route::get('pedido-produto/create/{pedido}', [PedidoProdutoController::class, 'create'])->name('pedido-produto.create');
+    Route::post('pedido-produto/store/{pedido}', [PedidoProdutoController::class, 'store'])->name('pedido-produto.store');
 });
 
 Route::fallback(function () {
