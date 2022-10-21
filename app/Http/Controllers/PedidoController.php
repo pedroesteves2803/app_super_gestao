@@ -27,7 +27,6 @@ class PedidoController extends Controller
      */
     public function create()
     {
-
         $clientes = Cliente::all();
 
         return view('app.pedido.create', ['clientes' => $clientes]);
@@ -66,7 +65,7 @@ class PedidoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($pedido)
     {
     }
 
